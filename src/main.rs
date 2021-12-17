@@ -7,6 +7,8 @@ fn main() -> Result<()> {
     env_logger::init_from_env(
         env_logger::Env::default().filter_or(env_logger::DEFAULT_FILTER_ENV, "info"));
 
+    log::info!("log4j-scan version {}", env!("CARGO_PKG_VERSION"));
+
     let matches = App::new("log4j-scan")
         .version(env!("CARGO_PKG_VERSION"))
         .setting(clap::AppSettings::ArgRequiredElseHelp)
@@ -39,6 +41,8 @@ fn main() -> Result<()> {
             }
         }
     }
+
+    log::info!("log4-scan completed");
 
     Ok(())
 }
