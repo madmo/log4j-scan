@@ -19,6 +19,7 @@ fn main() -> Result<()> {
 
     for entry in WalkDir::new(matches.value_of("PATH").unwrap())
         .follow_links(true)
+        .same_file_system(true)
         .into_iter()
         .filter_map(|e| e.ok())
     {
